@@ -11,7 +11,7 @@ $$('[data-wa]').forEach(a=>a.href=wa(a.dataset.wa));
 const STAYS=[
  {n:'The Studio Loft',slug:'studio',
   d:'A warm, open-plan studio for one or two guests, with a kitchenette and a quiet corner to work.',
-  f:['Sleeps 2','1 bed','Kitchenette','Wi-Fi'],
+  f:['2 guests','Studio','1 bed','1 bath'],
   photo:'assets/photos/studio-sitting.jpg',
   tour:[
    {t:'The sleeping area',d:'A soft upholstered double bed, warm evening light and a quiet corner of the studio.',img:'assets/photos/studio-bedroom.jpg',alt:'Upholstered double bed with orange cushions in the Studio Loft'},
@@ -20,7 +20,7 @@ const STAYS=[
   gallery:[]},
  {n:'The One-Bedroom Loft',slug:'one-bed',
   d:'A separate bedroom, a proper lounge and a full kitchen. Comfortable for couples and longer stays.',
-  f:['Sleeps 3','1 bedroom','Full kitchen','Wi-Fi'],
+  f:['3 guests','1 bedroom','1 bed','1 bath'],
   photo:'assets/photos/one-bed-sitting.jpg',
   tour:[
    {t:'The bedroom',d:'A calm, carpeted bedroom with an upholstered double bed, a generous wardrobe and room to unpack.',img:'assets/photos/one-bed-bedroom.jpg',alt:'Double bed with a padded headboard and grey rug in the One-Bedroom Loft'},
@@ -40,10 +40,10 @@ const STAYS=[
   ]},
  {n:'The Family Loft',slug:'family',
   d:'Two bedrooms and plenty of space to spread out. Made for families and small groups travelling together.',
-  f:['Sleeps 5','2 bedrooms','Full kitchen','Parking'],photo:'',tour:null,gallery:[]},
+  f:['5 guests','2 bedrooms','2 beds','1 bath'],photo:'',tour:null,gallery:[]},
  {n:'The Top-Floor Loft',slug:'top-floor',
   d:'Our highest apartment with wide windows and the best light in the building.',
-  f:['Sleeps 6','3 bedrooms','City views','Wi-Fi'],photo:'',tour:null,gallery:[]}
+  f:['6 guests','3 bedrooms','3 beds','1 bath'],photo:'',tour:null,gallery:[]}
 ];
 
 /* drawing used until a verified photograph exists */

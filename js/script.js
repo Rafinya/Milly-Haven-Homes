@@ -1,33 +1,49 @@
-const PHONE="254712522925";
+const PHONE="254720209232";
 const STAGNANT=false;      // master switch for the pointer / tilt / film effects
 const STORY_MOTION=true;   // scroll-driven tower rise on the home page
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const wa=t=>`https://wa.me/${PHONE}?text=${encodeURIComponent(t)}`;
 $$('[data-wa]').forEach(a=>a.href=wa(a.dataset.wa));
 
-/* Edit your lofts here. Every photo below is a real Millie BNB photograph
+/* Edit your lofts here. Every photo below is a real Dazzling Crest photograph
    matched to the apartment it belongs to. Leave "photo" empty when no
    verified photograph exists — the illustration is used instead. */
 const STAYS=[
- {n:'The Studio Loft',slug:'studio',
-  d:'A warm, open-plan studio for one or two guests, with a kitchenette and a quiet corner to work.',
-  f:['2 guests','Studio','1 bed','1 bath'],
-  photo:'assets/photos/studio-sitting.jpg',
+ {n:'One-Bedroom Loft — Ngara Fig Tree (Option 1)',slug:'ngara-1',
+  loc:'Ngara, Fig Tree',
+  d:'A stylish, bright one-bedroom loft situated at Ngara Fig Tree. Features an open living lounge, modern fully equipped kitchen, plush bedroom with built-in wardrobe, dedicated dining corner, and access to the shared resident gym, parking, and convenience shop.',
+  f:['2 guests','1 bedroom','1 bed','1 bath','Resident Gym Access','Ngara, Fig Tree'],
+  photo:'assets/photos/ngara-01.jpg',
   tour:[
-   {t:'The sleeping area',d:'A soft upholstered double bed, warm evening light and a quiet corner of the studio.',img:'assets/photos/studio-bedroom.jpg',alt:'Upholstered double bed with orange cushions in the Studio Loft'},
-   {t:'The living area',d:'A compact lounge with a deep sofa, a table for two and the balcony light coming through.',img:'assets/photos/studio-sitting.jpg',alt:'Cream sofa and dining table in the Studio Loft living area'}
+   {t:'The living room',d:'A welcoming cream modular corner sofa with burnt-orange accent cushions, handcrafted coffee table and warm ambient lighting.',img:'assets/photos/ngara-01.jpg',alt:'Cream sectional sofa with orange cushions in Ngara Fig Tree One-Bedroom Loft'},
+   {t:'The entertainment area',d:'Mounted flatscreen TV with full media setup, indoor planter and views toward the balcony.',img:'assets/photos/ngara-08.jpg',alt:'TV media console and lounge area in Ngara loft'},
+   {t:'The open-plan lounge',d:'Spacious perspective taking in the modern chandelier, dining alcove and open living space.',img:'assets/photos/ngara-02.jpg',alt:'Open view of the living room and window light in Ngara loft'},
+   {t:'The modern kitchen',d:'Fitted cabinetry with oven, microwave, large refrigerator, water dispenser and essential cookware ready for meals.',img:'assets/photos/ngara-07.jpg',alt:'Fitted kitchen with cooker, microwave and fridge in Ngara loft'},
+   {t:'The dining alcove',d:'A cozy round dining table for two by the window with high-floor natural light.',img:'assets/photos/ngara-05.jpg',alt:'Round dining table set for two by the balcony window'},
+   {t:'The bedroom',d:'An inviting upholstered fluted headboard, fresh crisp white linen, and a tall wooden wardrobe.',img:'assets/photos/ngara-10.jpg',alt:'Plush bed with fluted headboard and wardrobe in Ngara loft'},
+   {t:'Resident rooftop gym',d:'Fully equipped fitness center available on-site for daily workouts with cardio machines and weights.',img:'assets/photos/amenities/ngara-gym.jpg',alt:'Equipped resident fitness gym in Ngara Fig Tree'}
   ],
-  gallery:[]},
- {n:'The One-Bedroom Loft',slug:'one-bed',
-  d:'A separate bedroom, a proper lounge and a full kitchen. Comfortable for couples and longer stays.',
-  f:['3 guests','1 bedroom','1 bed','1 bath'],
+  gallery:[
+   {img:'assets/photos/ngara-09.jpg',cap:'Lounge & kitchen overview'},
+   {img:'assets/photos/ngara-03.jpg',cap:'Living room & chandelier'},
+   {img:'assets/photos/ngara-04.jpg',cap:'Lounge & balcony window'},
+   {img:'assets/photos/ngara-06.jpg',cap:'Kitchenette & appliances'},
+   {img:'assets/photos/amenities/ngara-gym.jpg',cap:'Resident fitness gym'},
+   {img:'assets/photos/amenities/ngara-parking.jpg',cap:'Secure resident parking'},
+   {img:'assets/photos/amenities/ngara-shop.jpg',cap:'Ground-floor convenience shop'}
+  ]},
+ {n:'One-Bedroom Loft — Ngara Fig Tree (Option 2)',slug:'ngara-2',
+  loc:'Ngara, Fig Tree',
+  d:'A calm and inviting one-bedroom loft also in Ngara Fig Tree. Features a carpeted bedroom with cushioned headboard, sunny sitting room, dining area, full wooden kitchen, and resident gym access.',
+  f:['2 guests','1 bedroom','1 bed','1 bath','Resident Gym Access','Ngara, Fig Tree'],
   photo:'assets/photos/one-bed-sitting.jpg',
   tour:[
-   {t:'The bedroom',d:'A calm, carpeted bedroom with an upholstered double bed, a generous wardrobe and room to unpack.',img:'assets/photos/one-bed-bedroom.jpg',alt:'Double bed with a padded headboard and grey rug in the One-Bedroom Loft'},
-   {t:'The sitting room',d:'A proper lounge: a deep sofa, a TV wall and a dining table set by the window.',img:'assets/photos/one-bed-sitting.jpg',alt:'Cream sofa, coffee table and window in the One-Bedroom Loft sitting room'},
+   {t:'The bedroom',d:'A calm, carpeted bedroom with an upholstered double bed, generous wardrobe and room to unpack.',img:'assets/photos/one-bed-bedroom.jpg',alt:'Double bed with a padded headboard and grey rug in Ngara Fig Tree Loft Option 2'},
+   {t:'The sitting room',d:'A proper lounge: a deep sofa, a TV wall and a dining table set by the window.',img:'assets/photos/one-bed-sitting.jpg',alt:'Cream sofa, coffee table and window in sitting room'},
    {t:'The dining corner',d:'A table for two in the window light — breakfast, or a quiet place to work.',img:'assets/photos/one-bed-dining.jpg',alt:'Round dining table set for two beside the window'},
    {t:'The kitchen',d:'A full kitchen with oven, hob, microwave and everything you need to cook properly.',img:'assets/photos/one-bed-kitchen.jpg',alt:'Full kitchen with oven, hob, sink and wooden cabinets'},
-   {t:'The bathroom',d:'A clean, tiled bathroom with a walk-in shower and a pedestal basin.',img:'assets/photos/one-bed-bathroom.jpg',alt:'Tiled bathroom with walk-in shower, toilet and pedestal basin'}
+   {t:'The bathroom',d:'A clean, tiled bathroom with a walk-in shower and a pedestal basin.',img:'assets/photos/one-bed-bathroom.jpg',alt:'Tiled bathroom with walk-in shower, toilet and pedestal basin'},
+   {t:'Resident rooftop gym',d:'Dedicated resident fitness facility with weights, treadmills and panoramic building views.',img:'assets/photos/amenities/ngara-gym.jpg',alt:'Equipped resident fitness gym in Ngara Fig Tree'}
   ],
   gallery:[
    {img:'assets/photos/one-bed-living.jpg',cap:'Living room'},
@@ -36,14 +52,54 @@ const STAYS=[
    {img:'assets/photos/one-bed-sitting-sofa.jpg',cap:'Sitting room'},
    {img:'assets/photos/one-bed-dining-sofa.jpg',cap:'Dining by the window'},
    {img:'assets/photos/one-bed-kitchen-open.jpg',cap:'Open-plan kitchen'},
-   {img:'assets/photos/one-bed-bedroom-wardrobe.jpg',cap:'Bedroom storage'}
+   {img:'assets/photos/one-bed-bedroom-wardrobe.jpg',cap:'Bedroom storage'},
+   {img:'assets/photos/amenities/ngara-gym.jpg',cap:'Resident fitness gym'},
+   {img:'assets/photos/amenities/ngara-parking.jpg',cap:'Secure resident parking'},
+   {img:'assets/photos/amenities/ngara-shop.jpg',cap:'Ground-floor convenience shop'}
   ]},
- {n:'The Family Loft',slug:'family',
-  d:'Two bedrooms and plenty of space to spread out. Made for families and small groups travelling together.',
-  f:['5 guests','2 bedrooms','2 beds','1 bath'],photo:'',tour:null,gallery:[]},
- {n:'The Top-Floor Loft',slug:'top-floor',
-  d:'Our highest apartment with wide windows and the best light in the building.',
-  f:['6 guests','3 bedrooms','3 beds','1 bath'],photo:'',tour:null,gallery:[]}
+ {n:'Executive One-Bedroom Loft — Westlands',slug:'westlands',
+  loc:'Westlands',
+  d:'A contemporary luxury one-bedroom apartment in prime Westlands. Features an electric-blue sectional sofa, dedicated office workspace, high-gloss kitchen with integrated oven & hood, in-unit washing machine, and building children playground.',
+  f:['2 guests','1 bedroom','1 bed','1 bath','Dedicated Workspace','Westlands'],
+  photo:'assets/photos/westlands/westlands-01.jpg',
+  tour:[
+   {t:'The designer lounge',d:'Plush ocean-blue sectional sofa with contemporary accents, sunflower art, and full-height window drape leading to the balcony.',img:'assets/photos/westlands/westlands-01.jpg',alt:'Modern living room with blue sectional in Westlands'},
+   {t:'The open-plan perspective',d:'Expansive view of the lounge, ultra-thin flatscreen TV, and modern chef kitchen with breakfast counter.',img:'assets/photos/westlands/westlands-05.jpg',alt:'Open view of the Westlands living room and kitchen'},
+   {t:'The executive workspace',d:'A dedicated work desk with ergonomic rolling office chair, fiber Wi-Fi, and natural light — tailored for remote professionals.',img:'assets/photos/westlands/westlands-02.jpg',alt:'Work desk and executive office chair in Westlands loft'},
+   {t:'The gourmet kitchen',d:'High-gloss white and graphite soft-close cabinetry, built-in burner & oven, stainless range hood, and water station.',img:'assets/photos/westlands/westlands-03.jpg',alt:'Contemporary fitted kitchen with oven and range hood in Westlands'},
+   {t:'The serene bedroom',d:'Fluted plush cream velvet headboard, premium mattress, crisp linens, side console, and extensive built-in wardrobes.',img:'assets/photos/westlands/westlands-04.jpg',alt:'Luxury bed with velvet headboard and white linens in Westlands'},
+   {t:'Kids play zone & amenities',d:'Safe, colorful indoor children play gym with slide and trampoline within the residential complex.',img:'assets/photos/westlands/westlands-08.jpg',alt:'Children indoor playground and fun play structures'}
+  ],
+  gallery:[
+   {img:'assets/photos/westlands/westlands-06.jpg',cap:'Balcony & skyline vista'},
+   {img:'assets/photos/westlands/westlands-07.jpg',cap:'Master bedroom suite'},
+   {img:'assets/photos/westlands/westlands-09.jpg',cap:'In-unit laundry station'},
+   {img:'assets/photos/westlands/westlands-10.jpg',cap:'Modern tiled bathroom'},
+   {img:'assets/photos/westlands/westlands-08.jpg',cap:'Building children playground'}
+  ]},
+ {n:'Two-Bedroom Family Loft — Ngara Fig Tree',slug:'ngara-2bed',
+  loc:'Ngara, Fig Tree',
+  d:'A spacious, fully furnished two-bedroom residence in Ngara Fig Tree. Ideal for families and groups, featuring a complete lounge, dining area, balcony laundry setup with washing machine, on-site gym, parking, and mini-mart.',
+  f:['4 guests','2 bedrooms','2 beds','1 bath','Resident Gym Access','Ngara, Fig Tree'],
+  photo:'assets/photos/ngara4/01-living-dining.jpg',
+  tour:[
+   {t:'The main living & media lounge',d:'Warm cream sectional sofa with vibrant geometric pillows, circular glass & gold coffee table, and large smart TV.',img:'assets/photos/ngara4/01-living-dining.jpg',alt:'Two-bedroom living room with sectional sofa in Ngara'},
+   {t:'The dining room',d:'Round black dining table set for four with cushioned chairs, ambient wall sconce and floral centerpiece.',img:'assets/photos/ngara4/02-dining.jpg',alt:'Dining table for four in the two-bedroom Ngara loft'},
+   {t:'The balcony & laundry suite',d:'Private high-floor balcony with washing machine, laundry basket and open cityscape views.',img:'assets/photos/ngara4/03-laundry-balcony.jpg',alt:'Balcony with automatic washing machine and city view'},
+   {t:'The master bedroom',d:'Comfortable double bed with upholstered headboard, fine linens and tall built-in wardrobes.',img:'assets/photos/ngara4/04-bedroom1.jpg',alt:'Master bedroom in the two-bedroom loft'},
+   {t:'The second bedroom',d:'Bright and quiet second bedroom with cozy bedding, nightstand and storage.',img:'assets/photos/ngara4/05-bedroom2.jpg',alt:'Second bedroom in the two-bedroom loft'},
+   {t:'The fully fitted kitchen',d:'Cooker, oven, microwave, kettle, cookware and full cabinetry for preparing family meals.',img:'assets/photos/ngara4/06-kitchen.jpg',alt:'Full kitchen with appliances and cabinetry in Ngara'},
+   {t:'The bathroom',d:'Clean tiled bathroom with hot shower, modern fixtures and mirror vanity.',img:'assets/photos/ngara4/07-bathroom.jpg',alt:'Tiled bathroom with shower and vanity'},
+   {t:'Resident rooftop gym',d:'Fully equipped on-site gym with treadmills, weight machines and dumbbells.',img:'assets/photos/amenities/ngara-gym.jpg',alt:'Shared resident gym in Ngara complex'}
+  ],
+  gallery:[
+   {img:'assets/photos/ngara4/08-lounge-detail.jpg',cap:'Lounge seating area'},
+   {img:'assets/photos/ngara4/09-media-tv.jpg',cap:'Smart TV & entertainment console'},
+   {img:'assets/photos/ngara4/10-master-wardrobe.jpg',cap:'Master bedroom storage'},
+   {img:'assets/photos/amenities/ngara-gym.jpg',cap:'Resident fitness gym'},
+   {img:'assets/photos/amenities/ngara-parking.jpg',cap:'Secure resident parking'},
+   {img:'assets/photos/amenities/ngara-shop.jpg',cap:'Forest Shop mini-mart'}
+  ]}
 ];
 
 /* drawing used until a verified photograph exists */
@@ -52,17 +108,17 @@ const art=(s,i)=>{if(s.photo)return`<img src="${s.photo}" alt="${s.n} interior" 
  return`<svg viewBox="0 0 400 300" role="img" aria-label="${s.n}"><defs><linearGradient id="g${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a3a1e"/><stop offset="1" stop-color="#17130d"/></linearGradient></defs><rect width="400" height="300" fill="url(#g${i})"/><rect x="132" y="50" width="136" height="250" fill="#1b160f" stroke="#c9a24b"/><path d="M132 50l34-22h68l34 22" fill="none" stroke="#c9a24b"/>${w}<rect x="0" y="286" width="400" height="14" fill="#0e0c08"/></svg>`};
 const tourHref=s=>s.tour?`loft.html?p=${s.slug}`:'stays.html';
 
-if($('#feat'))$('#feat').innerHTML=STAYS.slice(0,3).map((s,i)=>`<a class="card" href="${tourHref(s)}"><div class="art" data-t>${art(s,i)}</div><h3>${s.n}</h3><p>${s.f.slice(0,3).join(', ')}</p>${s.tour?'<span class="card-cta">Step inside</span>':''}</a>`).join('');
+if($('#feat'))$('#feat').innerHTML=STAYS.map((s,i)=>`<a class="card" href="${tourHref(s)}"><div class="art" data-t>${art(s,i)}</div><h3>${s.n}</h3><p>${s.f.slice(0,3).join(', ')}</p>${s.tour?'<span class="card-cta">Step inside</span>':''}</a>`).join('');
 
 if($('#list'))$('#list').innerHTML=STAYS.map((s,i)=>{
  const media=s.photo?`<img src="${s.photo}" alt="${s.n} interior" decoding="async">`:art(s,i+4);
  const artBlock=s.tour?`<a class="art art-link" href="${tourHref(s)}" data-t aria-label="Step inside ${s.n}">${media}</a>`:`<div class="art" data-t>${media}</div>`;
  return`<article class="row rv" id="stay-${s.slug}">${artBlock}<div class="tx"><h2>${s.n}</h2><p>${s.d}</p><ul>${s.f.map(x=>`<li>${x}</li>`).join('')}</ul>
- <div class="row-actions">${s.tour?`<a class="bt fill" href="${tourHref(s)}">Step inside</a>`:''}<a class="bt" target="_blank" rel="noopener" href="${wa('Hello Milly Haven Homes, I’m interested in '+s.n+'. Is it available?')}">Ask about this loft</a></div>
+ <div class="row-actions">${s.tour?`<a class="bt fill" href="${tourHref(s)}">Step inside</a>`:''}<a class="bt" target="_blank" rel="noopener" href="${wa('Hello Dazzling Crest Homes, I’m interested in '+s.n+'. Is it available?')}">Ask about this loft</a></div>
  ${s.tour?'':`<span class="row-note">We do not have verified photographs of this loft yet — message us and we will send the current ones.</span>`}</div></article>`}).join('');
 
 if($('#fs'))$('#fs').innerHTML=STAYS.map(s=>`<option>${s.n}</option>`).join('')+'<option>Not sure yet</option>';
-if($('#send'))$('#send').onclick=()=>{const g=id=>$('#'+id).value.trim();let t=`Hello Milly Haven Homes, ${g('fn')?'my name is '+g('fn')+'. ':''}I’d like to book ${g('fs')}`;
+if($('#send'))$('#send').onclick=()=>{const g=id=>$('#'+id).value.trim();let t=`Hello Dazzling Crest Homes, ${g('fn')?'my name is '+g('fn')+'. ':''}I’d like to book ${g('fs')}`;
  if(g('fi'))t+=` from ${g('fi')}`;if(g('fo'))t+=` to ${g('fo')}`;t+='.';if(g('fm'))t+=' '+g('fm');window.open(wa(t),'_blank','noopener')};
 
 /* 3d tower */
@@ -99,7 +155,7 @@ document.addEventListener('pointerout',e=>{const t=e.target.closest('[data-t]');
 document.addEventListener('pointermove',e=>{const c=e.target.closest('.rcard');if(!c)return;const b=c.getBoundingClientRect();c.style.setProperty('--cx',(e.clientX-b.left)+'px');c.style.setProperty('--cy',(e.clientY-b.top)+'px')},{passive:true});
 }
 
-/* home film — the real Millie BNB video, trimmed to the living-room walkthrough
+/* home film — the real Dazzling Crest video, trimmed to the living-room walkthrough
    so it can loop natively from the first frame */
 const bgv=$('#bgv');
 if(bgv){
@@ -155,12 +211,12 @@ if(tourRoot){
  const stay=STAYS.find(s=>s.slug===slug);
  const hero=$('#tour-hero'),gal=$('#tgallery'),end=$('#tour-end');
  if(!stay||!stay.tour){
-  if(hero)hero.innerHTML=`<div class="wrap"><a class="tour-back" href="stays.html">All stays</a><span class="eyebrow">Our stays</span><h1>Photos are on their way.</h1><p style="margin-top:20px">We do not have verified photographs of this loft yet. Message us and we will send the current ones before you book.</p><p style="margin-top:34px"><a class="bt fill" target="_blank" rel="noopener" href="${wa('Hello Milly Haven Homes, please send me current photos of '+(stay?stay.n:'the loft')+'.')}">Ask for current photos</a> <a class="bt" href="stays.html">Back to all lofts</a></p></div>`;
+  if(hero)hero.innerHTML=`<div class="wrap"><a class="tour-back" href="stays.html">All stays</a><span class="eyebrow">Our stays</span><h1>Photos are on their way.</h1><p style="margin-top:20px">We do not have verified photographs of this loft yet. Message us and we will send the current ones before you book.</p><p style="margin-top:34px"><a class="bt fill" target="_blank" rel="noopener" href="${wa('Hello Dazzling Crest Homes, please send me current photos of '+(stay?stay.n:'the loft')+'.')}">Ask for current photos</a> <a class="bt" href="stays.html">Back to all lofts</a></p></div>`;
   tourRoot.remove();if(gal)gal.remove();if(end)end.remove();
  }else{
-  document.title=stay.n+' — Milly Haven Homes Accommodations';
+  document.title=stay.n+' — Dazzling Crest Homes Accommodations';
   const n=stay.tour.length;
-  if(hero)hero.innerHTML=`<div class="wrap"><a class="tour-back" href="stays.html">All stays</a><span class="eyebrow">The property tour</span><h1>${stay.n}</h1><p>${stay.d}</p><div class="tour-facts">${stay.f.map(x=>`<span>${x}</span>`).join('')}<span><b>${n}</b> spaces to explore</span></div><a class="bt fill" target="_blank" rel="noopener" href="${wa('Hello Milly Haven Homes, I’m interested in '+stay.n+'. Is it available?')}">Ask about this loft</a> <a class="bt" href="stays.html">All lofts</a></div>`;
+  if(hero)hero.innerHTML=`<div class="wrap"><a class="tour-back" href="stays.html">All stays</a><span class="eyebrow">The property tour</span><h1>${stay.n}</h1><p>${stay.d}</p><div class="tour-facts">${stay.f.map(x=>`<span>${x}</span>`).join('')}<span><b>${n}</b> spaces to explore</span></div><a class="bt fill" target="_blank" rel="noopener" href="${wa('Hello Dazzling Crest Homes, I’m interested in '+stay.n+'. Is it available?')}">Ask about this loft</a> <a class="bt" href="stays.html">All lofts</a></div>`;
   tourRoot.style.setProperty('--stops',n);
   tourRoot.innerHTML=`<div class="tour-stick"><div class="tstage">${stay.tour.map((r,i)=>`<img src="${r.img}" alt="${r.alt||r.t}" ${i===0?'fetchpriority="high" decoding="sync"':'decoding="async"'}>`).join('')}</div><span class="tveil"></span>
    <div class="trail"><span class="tcount"><b id="tc-num">01</b> / ${String(n).padStart(2,'0')}</span>
@@ -173,7 +229,7 @@ if(tourRoot){
     gal.innerHTML=`<div class="wrap"><div class="head"><span class="eyebrow">More of the loft</span><h2>Room by room.</h2><p>The same apartment, photographed as it is.</p></div><div class="tg">${stay.gallery.map(g=>`<figure><img src="${g.img}" alt="${stay.n} — ${g.cap}" loading="lazy" decoding="async"><figcaption>${g.cap}</figcaption></figure>`).join('')}</div></div>`;
    }else gal.innerHTML='';
   }
-  if(end)end.innerHTML=`<div class="wrap"><div class="band"><span class="eyebrow">Ready when you are</span><h2>Stay in ${stay.n}.</h2><p style="margin:0 auto 32px">Tell us your dates and we will confirm availability. A real person replies on WhatsApp.</p><a class="bt fill" target="_blank" rel="noopener" href="${wa('Hello Milly Haven Homes, I’d like to book '+stay.n+'.')}">Check availability</a> <a class="bt" href="stays.html">See the other lofts</a></div></div>`;
+  if(end)end.innerHTML=`<div class="wrap"><div class="band"><span class="eyebrow">Ready when you are</span><h2>Stay in ${stay.n}.</h2><p style="margin:0 auto 32px">Tell us your dates and we will confirm availability. A real person replies on WhatsApp.</p><a class="bt fill" target="_blank" rel="noopener" href="${wa('Hello Dazzling Crest Homes, I’d like to book '+stay.n+'.')}">Check availability</a> <a class="bt" href="stays.html">See the other lofts</a></div></div>`;
 
   const stage=$$('#tour .tstage img'),caps=$$('#tour .tcap'),dots=$$('#tour .tdots span'),bar=$('#tbar'),num=$('#tc-num');
   let tRaf=0,active=-1;

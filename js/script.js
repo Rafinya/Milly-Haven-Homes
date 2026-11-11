@@ -318,7 +318,7 @@ document.addEventListener('click',e=>{
  let url;try{url=new URL(a.getAttribute('href'),location.href)}catch(err){return}
  if(url.origin!==location.origin)return;
  const file=url.pathname.split('/').pop();
- if(!/^(home|stays|why-us|contact|loft)\.html$/.test(file))return;
+ if(!/^(home|stays|why-us|contact|loft|index)\.html$/.test(file)&&file!=='')return;
  e.preventDefault();
  if(url.pathname===location.pathname&&url.search===location.search){scrollTo({top:0,behavior:'smooth'});return}
  try{sessionStorage.setItem('wl-nav','1')}catch(err){}

@@ -168,6 +168,15 @@ if(bgv){
   play();
   addEventListener('pageshow',play);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)bgv.pause();else play()});
+  if('IntersectionObserver' in window){
+   const heroSec=$('.hero-sec');
+   if(heroSec){
+    const vIo=new IntersectionObserver(entries=>{
+     entries.forEach(entry=>{if(entry.isIntersecting)play();else bgv.pause()});
+    },{threshold:0.1});
+    vIo.observe(heroSec);
+   }
+  }
  }
 }
 

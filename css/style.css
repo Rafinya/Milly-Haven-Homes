@@ -168,11 +168,11 @@ footer{padding:80px 28px 45px;background:linear-gradient(180deg, rgba(20,17,13,0
    ============================================================ */
 .hero-sec{position:relative;min-height:100vh;overflow:hidden;isolation:isolate}
 .hero-video{position:absolute;inset:0;z-index:0;overflow:hidden;background:#0c0a07}
-.hero-video video{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;opacity:1;transform:none;filter:contrast(1.08) brightness(1.04) saturate(1.05);image-rendering:-webkit-optimize-contrast}
-.hv-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,9,6,.82) 0%,rgba(11,9,6,.48) 38%,rgba(11,9,6,.08) 68%,rgba(11,9,6,.15) 100%),linear-gradient(180deg,rgba(11,9,6,.55) 0%,transparent 22%,transparent 65%,rgba(11,9,6,.6) 88%,var(--bg) 100%)}
+.hero-video video{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;opacity:1;transform:translateZ(0);-webkit-backface-visibility:hidden;backface-visibility:hidden;filter:contrast(1.12) brightness(1.05) saturate(1.08);image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges}
+.hv-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,9,6,.68) 0%,rgba(11,9,6,.32) 34%,transparent 58%),linear-gradient(180deg,rgba(11,9,6,.4) 0%,transparent 18%,transparent 70%,rgba(11,9,6,.68) 92%,var(--bg) 100%);pointer-events:none}
 .hv-grain{display:none}
-.hero h1{text-shadow:0 4px 42px rgba(0,0,0,.5)}
-.hero p{text-shadow:0 2px 22px rgba(0,0,0,.55)}
+.hero h1{text-shadow:0 4px 32px rgba(0,0,0,.85),0 2px 8px rgba(0,0,0,.9)}
+.hero p{text-shadow:0 2px 22px rgba(0,0,0,.9),0 1px 4px rgba(0,0,0,.85)}
 .hero .bt:not(.fill){background:rgba(10,8,6,.32);backdrop-filter:blur(6px)}
 
 /* ============================================================
@@ -310,7 +310,7 @@ body.has-pointer .mf-ring{opacity:1}
 @media(max-width:860px){
  .hero-sec{min-height:100svh}
  .hero-video video{opacity:1}
- .hv-veil{background:linear-gradient(180deg,rgba(11,9,6,.82) 0%,rgba(11,9,6,.42) 34%,rgba(11,9,6,.52) 74%,var(--bg) 100%)}
+ .hv-veil{background:linear-gradient(180deg,rgba(11,9,6,.72) 0%,rgba(11,9,6,.32) 34%,rgba(11,9,6,.45) 74%,var(--bg) 100%)}
  .why-hero h1{font-size:clamp(44px,11vw,74px)}
  .orbit{max-width:360px}
  .orbit-chip{font-size:10px;padding:7px 12px}

@@ -10,7 +10,7 @@ $$('[data-wa]').forEach(a=>a.href=wa(a.dataset.wa));
    verified photograph exists — the illustration is used instead. */
 const STAYS=[
  {n:'One-Bedroom Loft — Ngara Fig Tree (Option 1)',slug:'ngara-1',
-  loc:'Ngara, Fig Tree',
+  loc:'Ngara, Fig Tree',price:2500,priceFormatted:'KSh 2,500',
   d:'A stylish, bright one-bedroom loft situated at Ngara Fig Tree. Features an open living lounge, modern fully equipped kitchen, plush bedroom with built-in wardrobe, dedicated dining corner, and access to the shared resident gym, parking, and convenience shop.',
   f:['2 guests','1 bedroom','1 bed','1 bath','Resident Gym Access','Ngara, Fig Tree'],
   photo:'assets/photos/ngara-01.jpg',
@@ -33,7 +33,7 @@ const STAYS=[
    {img:'assets/photos/amenities/ngara-shop.jpg',cap:'Ground-floor convenience shop'}
   ]},
  {n:'One-Bedroom Loft — Ngara Fig Tree (Option 2)',slug:'ngara-2',
-  loc:'Ngara, Fig Tree',
+  loc:'Ngara, Fig Tree',price:2500,priceFormatted:'KSh 2,500',
   d:'A calm and inviting one-bedroom loft also in Ngara Fig Tree. Features a carpeted bedroom with cushioned headboard, sunny sitting room, dining area, full wooden kitchen, and resident gym access.',
   f:['2 guests','1 bedroom','1 bed','1 bath','Resident Gym Access','Ngara, Fig Tree'],
   photo:'assets/photos/one-bed-sitting.jpg',
@@ -58,7 +58,7 @@ const STAYS=[
    {img:'assets/photos/amenities/ngara-shop.jpg',cap:'Ground-floor convenience shop'}
   ]},
  {n:'Executive One-Bedroom Loft — Westlands',slug:'westlands',
-  loc:'Westlands',
+  loc:'Westlands',price:2500,priceFormatted:'KSh 2,500',
   d:'A contemporary luxury one-bedroom apartment in prime Westlands. Features an electric-blue sectional sofa, dedicated office workspace, high-gloss kitchen with integrated oven & hood, in-unit washing machine, and building children playground.',
   f:['2 guests','1 bedroom','1 bed','1 bath','Dedicated Workspace','Westlands'],
   photo:'assets/photos/westlands/westlands-01.jpg',
@@ -78,7 +78,7 @@ const STAYS=[
    {img:'assets/photos/westlands/westlands-08.jpg',cap:'Building children playground'}
   ]},
  {n:'Two-Bedroom Family Loft — Ngara Fig Tree',slug:'ngara-2bed',
-  loc:'Ngara, Fig Tree',
+  loc:'Ngara, Fig Tree',price:4500,priceFormatted:'KSh 4,500',
   d:'A spacious, fully furnished two-bedroom residence in Ngara Fig Tree. Ideal for families and groups, featuring a complete lounge, dining area, balcony laundry setup with washing machine, on-site gym, parking, and mini-mart.',
   f:['4 guests','2 bedrooms','2 beds','1 bath','Resident Gym Access','Ngara, Fig Tree'],
   photo:'assets/photos/ngara4/01-living-dining.jpg',
@@ -108,16 +108,16 @@ const art=(s,i)=>{if(s.photo)return`<img src="${s.photo}" alt="${s.n} interior" 
  return`<svg viewBox="0 0 400 300" role="img" aria-label="${s.n}"><defs><linearGradient id="g${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a3a1e"/><stop offset="1" stop-color="#17130d"/></linearGradient></defs><rect width="400" height="300" fill="url(#g${i})"/><rect x="132" y="50" width="136" height="250" fill="#1b160f" stroke="#c9a24b"/><path d="M132 50l34-22h68l34 22" fill="none" stroke="#c9a24b"/>${w}<rect x="0" y="286" width="400" height="14" fill="#0e0c08"/></svg>`};
 const tourHref=s=>s.tour?`loft.html?p=${s.slug}`:'stays.html';
 
-if($('#feat'))$('#feat').innerHTML=STAYS.map((s,i)=>`<a class="card" href="${tourHref(s)}"><div class="art" data-t>${art(s,i)}</div><h3>${s.n}</h3><p>${s.f.slice(0,3).join(', ')}</p>${s.tour?'<span class="card-cta">Step inside</span>':''}</a>`).join('');
+if($('#feat'))$('#feat').innerHTML=STAYS.map((s,i)=>`<a class="card" href="${tourHref(s)}"><div class="art" data-t>${art(s,i)}<span class="art-price-badge"><span class="amount">${s.priceFormatted}</span><span class="period">/ night</span></span></div><h3>${s.n}</h3><p>${s.f.slice(0,3).join(', ')}</p>${s.tour?'<span class="card-cta">Step inside</span>':''}</a>`).join('');
 
 if($('#list'))$('#list').innerHTML=STAYS.map((s,i)=>{
  const media=s.photo?`<img src="${s.photo}" alt="${s.n} interior" decoding="async">`:art(s,i+4);
- const artBlock=s.tour?`<a class="art art-link" href="${tourHref(s)}" data-t aria-label="Step inside ${s.n}">${media}</a>`:`<div class="art" data-t>${media}</div>`;
- return`<article class="row rv" id="stay-${s.slug}">${artBlock}<div class="tx"><h2>${s.n}</h2><p>${s.d}</p><ul>${s.f.map(x=>`<li>${x}</li>`).join('')}</ul>
- <div class="row-actions">${s.tour?`<a class="bt fill" href="${tourHref(s)}">Step inside</a>`:''}<a class="bt" target="_blank" rel="noopener" href="${wa('Hello Dazzling Crest Homes, I’m interested in '+s.n+'. Is it available?')}">Ask about this loft</a></div>
+ const artBlock=s.tour?`<a class="art art-link" href="${tourHref(s)}" data-t aria-label="Step inside ${s.n}">${media}<span class="art-price-badge"><span class="amount">${s.priceFormatted}</span><span class="period">/ night</span></span></a>`:`<div class="art" data-t>${media}<span class="art-price-badge"><span class="amount">${s.priceFormatted}</span><span class="period">/ night</span></span></div>`;
+ return`<article class="row rv" id="stay-${s.slug}">${artBlock}<div class="tx"><h2>${s.n}</h2><div class="stay-price-row"><span class="price-badge-lg"><span class="amount">${s.priceFormatted}</span><span class="period">per night</span></span></div><p>${s.d}</p><ul>${s.f.map(x=>`<li>${x}</li>`).join('')}</ul>
+ <div class="row-actions">${s.tour?`<a class="bt fill" href="${tourHref(s)}">Step inside</a>`:''}<a class="bt" target="_blank" rel="noopener" href="${wa('Hello Dazzling Crest Homes, I’m interested in '+s.n+' ('+s.priceFormatted+'/night). Is it available?')}">Ask about this loft</a></div>
  ${s.tour?'':`<span class="row-note">We do not have verified photographs of this loft yet — message us and we will send the current ones.</span>`}</div></article>`}).join('');
 
-if($('#fs'))$('#fs').innerHTML=STAYS.map(s=>`<option>${s.n}</option>`).join('')+'<option>Not sure yet</option>';
+if($('#fs'))$('#fs').innerHTML=STAYS.map(s=>`<option value="${s.n}">${s.n} — ${s.priceFormatted}/night</option>`).join('')+'<option>Not sure yet</option>';
 if($('#send'))$('#send').onclick=()=>{const g=id=>$('#'+id).value.trim();let t=`Hello Dazzling Crest Homes, ${g('fn')?'my name is '+g('fn')+'. ':''}I’d like to book ${g('fs')}`;
  if(g('fi'))t+=` from ${g('fi')}`;if(g('fo'))t+=` to ${g('fo')}`;t+='.';if(g('fm'))t+=' '+g('fm');window.open(wa(t),'_blank','noopener')};
 
@@ -216,7 +216,7 @@ if(tourRoot){
  }else{
   document.title=stay.n+' — Dazzling Crest Homes Accommodations';
   const n=stay.tour.length;
-  if(hero)hero.innerHTML=`<div class="wrap"><a class="tour-back" href="stays.html">All stays</a><span class="eyebrow">The property tour</span><h1>${stay.n}</h1><p>${stay.d}</p><div class="tour-facts">${stay.f.map(x=>`<span>${x}</span>`).join('')}<span><b>${n}</b> spaces to explore</span></div><a class="bt fill" target="_blank" rel="noopener" href="${wa('Hello Dazzling Crest Homes, I’m interested in '+stay.n+'. Is it available?')}">Ask about this loft</a> <a class="bt" href="stays.html">All lofts</a></div>`;
+  if(hero)hero.innerHTML=`<div class="wrap"><a class="tour-back" href="stays.html">All stays</a><span class="eyebrow">The property tour</span><h1>${stay.n}</h1><p>${stay.d}</p><div class="tour-facts"><span class="tour-price-fact"><b>${stay.priceFormatted}</b> / night</span>${stay.f.map(x=>`<span>${x}</span>`).join('')}<span><b>${n}</b> spaces to explore</span></div><a class="bt fill" target="_blank" rel="noopener" href="${wa('Hello Dazzling Crest Homes, I’m interested in '+stay.n+' ('+stay.priceFormatted+'/night). Is it available?')}">Ask about this loft</a> <a class="bt" href="stays.html">All lofts</a></div>`;
   tourRoot.style.setProperty('--stops',n);
   tourRoot.innerHTML=`<div class="tour-stick"><div class="tstage">${stay.tour.map((r,i)=>`<img src="${r.img}" alt="${r.alt||r.t}" ${i===0?'fetchpriority="high" decoding="sync"':'decoding="async"'}>`).join('')}</div><span class="tveil"></span>
    <div class="trail"><span class="tcount"><b id="tc-num">01</b> / ${String(n).padStart(2,'0')}</span>
@@ -229,7 +229,7 @@ if(tourRoot){
     gal.innerHTML=`<div class="wrap"><div class="head"><span class="eyebrow">More of the loft</span><h2>Room by room.</h2><p>The same apartment, photographed as it is.</p></div><div class="tg">${stay.gallery.map(g=>`<figure><img src="${g.img}" alt="${stay.n} — ${g.cap}" loading="lazy" decoding="async"><figcaption>${g.cap}</figcaption></figure>`).join('')}</div></div>`;
    }else gal.innerHTML='';
   }
-  if(end)end.innerHTML=`<div class="wrap"><div class="band"><span class="eyebrow">Ready when you are</span><h2>Stay in ${stay.n}.</h2><p style="margin:0 auto 32px">Tell us your dates and we will confirm availability. A real person replies on WhatsApp.</p><a class="bt fill" target="_blank" rel="noopener" href="${wa('Hello Dazzling Crest Homes, I’d like to book '+stay.n+'.')}">Check availability</a> <a class="bt" href="stays.html">See the other lofts</a></div></div>`;
+  if(end)end.innerHTML=`<div class="wrap"><div class="band"><span class="eyebrow">Ready when you are</span><h2>Stay in ${stay.n}.</h2><p style="margin:0 auto 12px;font-size:26px;color:var(--g2);font-family:'Cormorant Garamond',serif"><b>${stay.priceFormatted}</b> <span style="font-size:16px;color:#cfc3aa;font-family:'Jost',sans-serif">/ night</span></p><p style="margin:0 auto 32px">Tell us your dates and we will confirm availability. A real person replies on WhatsApp.</p><a class="bt fill" target="_blank" rel="noopener" href="${wa('Hello Dazzling Crest Homes, I’d like to book '+stay.n+' ('+stay.priceFormatted+'/night).')}">Check availability</a> <a class="bt" href="stays.html">See the other lofts</a></div></div>`;
 
   const stage=$$('#tour .tstage img'),caps=$$('#tour .tcap'),dots=$$('#tour .tdots span'),bar=$('#tbar'),num=$('#tc-num');
   let tRaf=0,active=-1;
